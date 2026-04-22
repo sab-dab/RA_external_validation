@@ -4,7 +4,7 @@
 # Save model + training genus feature names
 # ===============================================================
 
-setwd("C:/Users/sabir/Downloads/gut microbiota")
+
 
 library(dplyr)
 library(stringr)
@@ -92,19 +92,6 @@ model <- xgb.train(
   nrounds=300
 )
 
-# -------------------------------------------------
-# Save
-# -------------------------------------------------
-dir.create("C:/Users/sabir/RA_validation", showWarnings=FALSE)
-
-xgb.save(model,
-         "C:/Users/sabir/RA_validation/model_xgb_genus.model")
-
-features <- colnames(train_x)
-
-saveRDS(features,
-        "C:/Users/sabir/RA_validation/train_genus_features.rds")
-
 cat("Saved genus model.\n")
 cat("Features:", length(features), "\n")
 
@@ -123,7 +110,6 @@ library(xgboost)
 # ----------------------------------------------------------
 # PATH
 # ----------------------------------------------------------
-path <- "C:/Users/sabir/RA_validation"
 setwd(path)
 
 # ----------------------------------------------------------
